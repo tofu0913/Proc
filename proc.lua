@@ -4,6 +4,7 @@ _addon.version = '0.0.1'
 
 require('chat')
 require('logger')
+require('coroutine')
 
 require('lor/lor_utils')
 _libs.lor.req('all')
@@ -12,6 +13,12 @@ settings = _libs.lor.settings.load('data/settings.lua', {})
 
 local curSet = 0
 local curLv = 0
+
+local function check_fume()
+    if curLv == 0 then
+        windower.send_command('input /fume')
+    end
+end
 
 windower.register_event('incoming text', function(_, text, _, _, blocked)
     if blocked or text == '' then
@@ -23,6 +30,7 @@ windower.register_event('incoming text', function(_, text, _, _, blocked)
        curSet = 38
        windower.send_command(string.format('input /equipset %s;wait 1;input //lua r autows;wait 1;input //aws on', curSet))
        curLv = 0
+        coroutine.schedule(check_fume, 90)
         
     elseif string.find(text, settings["proced"]) then
        atcf(262, "Proc gotcha!")
@@ -40,13 +48,13 @@ windower.register_event('incoming text', function(_, text, _, _, blocked)
             elseif string.find(text, settings["small"]) then
                 level = 1
             end
-            atcf(262, "Proc found:%s, level:%s", found, level)
+            -- atcf(262, "Proc found:%s, level:%s", found, level)
                 
             if level > curLv and settings[found] and curSet ~= settings[found] then
                 curSet = settings[found]
                 curLv = level
                 windower.send_command(string.format('input /equipset %s;wait 1;input //lua r autows;wait 1;input //aws rnd', settings[found]))
-                atcf(262, "Proc change set:%s", found)
+                atcf(262, "Proc target:%s, level:%s", found, level)
             end
         end
     end
