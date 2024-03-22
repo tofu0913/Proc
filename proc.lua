@@ -24,6 +24,10 @@ windower.register_event('incoming text', function(_, text, _, _, blocked)
        windower.send_command(string.format('input /equipset %s;wait 1;input //lua r autows;wait 1;input //aws on', curSet))
        curLv = 0
         
+    elseif string.find(text, settings["proced"]) then
+       atcf(262, "Proc gotcha!")
+       curLv = 0
+        
     else
         head = string.find(text, settings["head"])
         tail = string.find(text, settings["tail"])
