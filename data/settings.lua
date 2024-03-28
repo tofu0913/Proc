@@ -95,4 +95,26 @@ return {
             },
         },
     },
+    
+    ['textBox'] = {
+        ['pos'] = {
+            ['x'] = 555,
+            ['y'] = 545
+        },
+        ['text'] = {
+            ['font'] = 'Constantia',
+            ['size'] = 12,
+            ['red'] = 98,
+            ['green'] = 227,
+            ['blie'] = 196,
+            ['alpha'] = 255,
+        },
+        ['bg'] = {
+            ['red'] = 3,
+            ['green'] = 1,
+            ['blie'] = 1,
+            ['alpha'] = 160,
+            ['visible'] = true,
+        },
+    },
 }
