@@ -8,6 +8,13 @@ return {
     ["max2"] = "Rアラインメント：350",
     ["miss"] = "ミス",
     ["head"] = "、",
+    ["zergmode"] = {
+        ["type"] = "ws",
+        ["confirm"] = "を実行",
+        ["eqset"] = "38",
+        ["en"] = "Sword",
+        ["action"] = "サベッジブレード",
+    },
     ["killmode"] = {
         ["type"] = "ws",
         ["confirm"] = "を実行",

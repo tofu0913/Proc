@@ -184,8 +184,13 @@ windower.register_event('prerender', function()
         if (now - autowsLastCheck) >= autowsDelay then
 			local player = windower.ffxi.get_player()
 			if (player ~= nil) and (player.status == 1) then
-                if mode == "kill" or mode == nil then
+                if mode == "kill" then
                     item = settings['killmode']
+                    if makesureEq(item) and player.vitals.tp > 999 then
+                        launchProc(item)
+                    end
+                elseif mode == nil then
+                    item = settings['zergmode']
                     if makesureEq(item) and player.vitals.tp > 999 then
                         launchProc(item)
                     end
