@@ -206,7 +206,9 @@ windower.register_event('prerender', function()
                         elseif item["type"] == "bma" then
                             launchProc(item)
                         elseif item["type"] == "ja" then
-                            launchProc(item)
+                            if makesureEq(item) then
+                                launchProc(item)
+                            end
                         end
                     end
                 end
