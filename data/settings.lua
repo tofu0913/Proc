@@ -97,6 +97,7 @@ return {
             ["actions"] = {
                 ["暗黒騎士"] = {
                     ["eqset"] = "39",
+                    ["en"] = "Great Sword",
                     ["action"] = {"ウェポンバッシュ"},
                 },
             },
