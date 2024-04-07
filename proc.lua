@@ -198,10 +198,8 @@ windower.register_event('prerender', function()
                     if #queue>0 then
                         item = queue[1]
                         if item["type"] == "ws" then
-                            if player.vitals.tp > 999 then
-                                if makesureEq(item) then
-                                    launchProc(item)
-                                end
+                            if makesureEq(item) and player.vitals.tp > 999 then
+                                launchProc(item)
                             end
                         elseif item["type"] == "bma" then
                             launchProc(item)
