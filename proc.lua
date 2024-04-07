@@ -93,6 +93,7 @@ windower.register_event('incoming text', function(_, text, _, _, blocked)
             table.remove(queue, 1)
             if mode ~= "kill" and #queue == 0 then
                 mode = nil
+                DisplayBox()
             end
         end
     end
