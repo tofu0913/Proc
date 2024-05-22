@@ -110,7 +110,7 @@ return {
     ['textBox'] = {
         ['pos'] = {
             ['x'] = 555,
-            ['y'] = 545
+            ['y'] = 505
         },
         ['text'] = {
             ['font'] = 'Constantia',
