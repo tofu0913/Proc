@@ -18,9 +18,9 @@ return {
     ["killmode"] = {
         ["type"] = "ws",
         ["confirm"] = "を実行",
-        ["eqset"] = "40",
-        ["en"] = "Scythe",
-        ["action"] = "カタストロフィ",
+        ["eqset"] = "39",
+        ["en"] = "Great Sword",
+        ["action"] = "トアクリーバー",
     },
     ["procs"] = {
         ["ws"] = {
