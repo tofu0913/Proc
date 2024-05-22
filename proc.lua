@@ -169,14 +169,36 @@ local function launchProc(item)
 end
 
 local function makesureEq(item)
+    local bags = {
+        'inventory',
+        'safe',
+        'safe2',
+        'storage',
+        'locker',
+        'satchel',
+        'sack',
+        'case',
+        'wardrobe',
+        'wardrobe2',
+        'wardrobe3',
+        -- 'wardrobe4',
+    }
     local items = windower.ffxi.get_items()
     local i,bag = items.equipment.main, items.equipment.main_bag
-    skill = res.skills[res.items[items['wardrobe2'][i].id].skill].en
-    if item['en'] ~= skill then
-        windower.send_command(string.format('input /equipset %s;', item['eqset']))
-        return 0
+    skill = nil
+    for k, v in pairs(bags) do
+        if k == bag then
+            ta = res.items[items[v][i].id]
+            if ta then
+                skill = res.skills[ta.skill]
+            end
+        end
     end
-    return 1
+    if skill and item['en'] ~= skill.en then
+        windower.send_command(string.format('input /equipset %s;', item['eqset']))
+        return false
+    end
+    return true
 end
 
 windower.register_event('prerender', function()
