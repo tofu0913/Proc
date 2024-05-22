@@ -59,6 +59,7 @@ local function actionToItem(action, typ, confirm)
         item["confirm"] = confirm
         item["action"] = v
         item["type"] = typ
+        item["en"] = action['en']
         items[#items+1] = item
     end
     return items
@@ -195,6 +196,7 @@ local function makesureEq(item)
         end
     end
     if skill and item['en'] ~= skill.en then
+        log('from '..tostring(skill.en)..' to '..tostring(item['en'])..' eqset='..tostring(item['eqset']))
         windower.send_command(string.format('input /equipset %s;', item['eqset']))
         return false
     end
